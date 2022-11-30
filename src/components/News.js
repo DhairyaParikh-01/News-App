@@ -2,44 +2,50 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
-    articles = []   
-    constructor(){
+      
+    constructor(props){
         super();
         this.state = {
-             articles : this.articles,
+            articles : [] ,
              page : 1
         }
     }
 
     async  componentDidMount(){
         // console.log("This is componentDidMont() method");
-        let url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363";
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         data  = await data.json();
-        this.setState({articles : data.articles})
+        this.setState({articles : data.articles, totalArticles : data.totalResults})
     }
 
-    handleNextClick =  () =>{
-        // console.log("Next");
-        // let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363&page=${this.state.page + 1}`;
-        // let data = await fetch(url);
-        // data  = await data.json();
-        // this.setState({articles : data.articles})
-        // this.setState({
-        //     page : this.state.page + 1
-        // })
-        console.log("Next button is clicked");
+    handleNextClick =  async () =>{
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            let data = await fetch(url);
+            data  = await data.json();
+            this.setState({
+                page : this.state.page + 1,
+                articles : data.articles
+            })
     }
 
-    handlePreviousClick =  () =>{
-        // let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363&page=${this.state.page - 1}`;
-        // let data = await fetch(url);
-        // data  = await data.json();
-        // this.setState({articles : data.articles})
-        // this.setState({
-        //     page : this.state.page - 1
-        // })
-        console.log("Previous button is clicked");
+    handlePreviousClick = async () =>{
+        window.scrollTo({
+            top:0,
+            behavior: 'smooth'
+        })
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1dacf441fd604630af77146d67276363&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let data = await fetch(url);
+        data  = await data.json();
+        this.setState({
+            page : this.state.page - 1,
+            articles : data.articles
+        })
+        // console.log("Previous button is clicked");
     }
 
     render() {
@@ -53,8 +59,8 @@ export class News extends Component {
                     </div>
                     })}
                     <div className="container d-flex justify-content-between my-2" >
-                    <button type="button" className="btn btn-outline-dark" onClick={this.handlePreviousClick}> ← Previous</button>
-                    <button type="button" className="btn btn-outline-dark" onClick={this.handleNextClick}> Next →</button>
+                    <button type="button" disabled={this.state.page <=1} className="btn btn-outline-dark" onClick={this.handlePreviousClick}> ← Previous</button>
+                    <button type="button" disabled={this.state.page + 1 > Math.ceil(this.state.totalArticles/this.props.pageSize)} className="btn btn-outline-dark" onClick={this.handleNextClick}> Next →</button>
                     </div>
                 </div>
             </div>
