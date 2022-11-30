@@ -17,14 +17,23 @@ export class navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item ">
-                                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                                <a className="nav-link" href="/General">Home</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/">Features</a>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="/Business">business</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/">Pricing</a>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="/Entertainment">entertainment</a>
                             </li>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="/Sports">sports</a>
+                            </li>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="/Science">science</a>
+                            </li>
+                            <li className="nav-item ">
+                                <a className="nav-link" href="/Technology">technology</a>
+                            </li>                            
                         </ul>
                     </div>
                 </nav>
