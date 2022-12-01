@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types's
+import {Link} from "react-router-dom";
 
 export class navbar extends Component {
     // static propTypes = {
@@ -17,23 +18,23 @@ export class navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item ">
-                                <a className="nav-link" href="/General">Home</a>
+                                <Link className="nav-link" to="/general">Home</Link>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="/Business">business</a>
+                                <Link className="nav-link" to="/business">business</Link>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="/Entertainment">entertainment</a>
+                                <Link className="nav-link" to="/entertainment">entertainment</Link>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="/Sports">sports</a>
+                                <Link className="nav-link" to="/sports">sports</Link>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="/Science">science</a>
+                                <Link className="nav-link" to="/science">science</Link>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="/Technology">technology</a>
-                            </li>                            
+                                <Link className="nav-link" to="/technology">technology</Link>
+                            </li>
                         </ul>
                     </div>
                 </nav>
