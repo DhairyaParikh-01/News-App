@@ -18,22 +18,22 @@ export class navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/general">Home</Link>
+                                <Link className="nav-link" to="/general">General</Link>
                             </li>
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/business">business</Link>
+                                <Link className="nav-link" to="/business">Business</Link>
                             </li>
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/entertainment">entertainment</Link>
+                                <Link className="nav-link" to="/entertainment">Entertainment</Link>
                             </li>
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/sports">sports</Link>
+                                <Link className="nav-link" to="/sports">Sports</Link>
                             </li>
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/science">science</Link>
+                                <Link className="nav-link" to="/science">Science</Link>
                             </li>
                             <li className="nav-item ">
-                                <Link className="nav-link" to="/technology">technology</Link>
+                                <Link className="nav-link" to="/technology">Technology</Link>
                             </li>
                         </ul>
                     </div>
