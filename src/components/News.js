@@ -32,8 +32,9 @@ const News = (props) => {
     }
 
     useEffect(() => {
+        document.title = `NewsBuddy | ${capitalizeFirstChar(props.category)} news`;
         updateNews();
-    }, [])
+    }, [])          
 
 
 
@@ -60,7 +61,7 @@ const handlePreviousClick = async () => {
 
         return (
             <>
-                <h2 className="text-center" style={{margin: '35px 0px'}}>Top Headlines: {capitalizeFirstChar(props.category)} News</h2>
+                <h2 className="text-center" style={{margin: '90px 0px'}}>Top Headlines: {capitalizeFirstChar(props.category)} News</h2>
                 {loading && <Spinner/>}
                 <InfiniteScroll
                     dataLength={articles.length}
